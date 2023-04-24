@@ -11,16 +11,19 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPageTest extends BaseTest {
-    MainPage mainPage = new MainPage();
-
-    @BeforeMethod
+    @BeforeClass
     public void setUp() {
-        mainPage.openMainPage();
+        start().acceptCookie();
     }
 
     @Test
-    public void search() {
-        mainPage.searchButton.click();
-        mainPage.findSomeRes("coffee");
+    public void clickOnMenuTab() {
+        start().chooseMenu();
     }
+    @Test
+    public void ChooseAndBuy() {
+        start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte");
+    }
+
+
 }
