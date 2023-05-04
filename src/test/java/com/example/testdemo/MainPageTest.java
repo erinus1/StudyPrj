@@ -15,14 +15,17 @@ public class MainPageTest extends BaseTest {
     public void setUp() {
         start().acceptCookie();
     }
-
     @Test
     public void clickOnMenuTab() {
         start().chooseMenu();
     }
     @Test
-    public void ChooseAndBuy() {
+    public void сhooseADrink() {
         start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte");
+    }
+    @Test
+    public void setDrintOption() {
+        start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte").chooseSize();
     }
 
 
