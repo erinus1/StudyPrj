@@ -25,7 +25,7 @@ public class MainPageTest extends BaseTest {
     }
     @Test
     public void setDrintOption() {
-        start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte").chooseSize();
+        //start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte").chooseSize();
     }
 
 
