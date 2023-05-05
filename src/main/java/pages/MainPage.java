@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$$x;
 
 public class MainPage {
     private SelenideElement menuButton = $x("//*[@class='sb-globalNav__desktopListItem']/a[contains(text(),'Menu')]");
@@ -14,6 +15,7 @@ public class MainPage {
     private ElementsCollection subMenu = $$x("//li[@class=\"my3\"]/a");
     private ElementsCollection items = $$x("//*[@class=\"block linkOverlay__primary prodTile\"]");
     private ElementsCollection cupSize = $$x("//*[@id=\"content\"]/div[3]/div/div[1]/div[1]/form/fieldset/div");
+    //private ElementsCollection toBuyButton = $$x();
 
     public MainPage acceptCookie() {
         agreeButton.click();
@@ -32,8 +34,8 @@ public class MainPage {
         return new ProductPage();
     }
 
-    public ProductPage chooseOption(String size) {
-        cupSize.find(exactText(size)).click();
+    public ProductPage chooseOption(SizeOption size) {
+        cupSize.find.click();
         return new ProductPage();
     }
 }

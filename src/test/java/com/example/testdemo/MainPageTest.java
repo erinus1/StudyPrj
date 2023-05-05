@@ -3,6 +3,7 @@ package com.example.testdemo;
 import pages.MainPage;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.*;
+import pages.SizeOption;
 
 import static org.testng.Assert.*;
 
@@ -24,9 +25,8 @@ public class MainPageTest extends BaseTest {
         start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte");
     }
     @Test
-    public void setDrintOption() {
-        //start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte").chooseSize();
+    public void setDrinkOption() {
+        start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte").
+        //select size (from Enam class), select FIlters - milk collection cant find, click on the button
     }
-
-
 }
