@@ -29,4 +29,10 @@ public class MainPageTest extends BaseTest {
         start().chooseMenu().chooseSubMenu("Hot Teas").chooseProduct("Chai Tea Latte").
         //select size (from Enam class), select FIlters - milk collection cant find, click on the button
     }
+
+    @Test
+    public void placeOrder() {
+        //
+
+    }
 }

@@ -35,7 +35,7 @@ public class MainPage {
     }
 
     public ProductPage chooseOption(SizeOption size) {
-        cupSize.find.click();
+        // from enam ??? cupSize.find.click();
         return new ProductPage();
     }
 }
