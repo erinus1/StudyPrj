@@ -6,7 +6,7 @@ public class StorePage {
     // collection of towns //*[@data-e2e="locationList"]/article
     //confirmButton
 
-    public String enterToField (String city){
+    public String findStoreInput (String city){
         //Los Angeles, CA, USA
         return city;
     }
@@ -14,6 +14,8 @@ public class StorePage {
     //метод клік на кнопку конфірм
 
     public void selectCity() {
+
+        //колекція  data-e2e="store-warnings"
 
 
     }

@@ -1,10 +1,10 @@
 package pages;
 
 public enum SizeOption {
-    SHORT("short"),
-    TALL("tall"),
-    GRANDE("grande"),
-    VENTI("venti");
+    SHORT("Short"),
+    TALL("Tall"),
+    GRANDE("Grande"),
+    VENTI("Venti");
     private String name;
 
     public String value() {

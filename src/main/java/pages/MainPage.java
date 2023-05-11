@@ -4,8 +4,9 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.attribute;
-import static com.codeborne.selenide.Condition.exactText;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$$x;
 
@@ -14,11 +15,11 @@ public class MainPage {
     private SelenideElement agreeButton = $x("//*[@id='truste-consent-button']");
     private ElementsCollection subMenu = $$x("//li[@class=\"my3\"]/a");
     private ElementsCollection items = $$x("//*[@class=\"block linkOverlay__primary prodTile\"]");
-    private ElementsCollection cupSize = $$x("//*[@id=\"content\"]/div[3]/div/div[1]/div[1]/form/fieldset/div");
+
     //private ElementsCollection toBuyButton = $$x();
 
     public MainPage acceptCookie() {
-        agreeButton.click();
+        agreeButton.shouldBe(visible, Duration.ofSeconds(6)).click();
         return this;
     }
     public MainPage chooseMenu() {
@@ -29,13 +30,5 @@ public class MainPage {
         subMenu.find(exactText(menuName)).click();
         return this;
     }
-    public ProductPage chooseProduct(String item) {
-        items.find(exactText(item)).click();
-        return new ProductPage();
-    }
 
-    public ProductPage chooseOption(SizeOption size) {
-        // from enam ??? cupSize.find.click();
-        return new ProductPage();
-    }
 }

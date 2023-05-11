@@ -1,44 +1,43 @@
 package pages;
 
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
-
-import javax.swing.text.html.parser.Element;
-
-import static com.codeborne.selenide.Selenide.$$x;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductPage {
-    private SelenideElement milk = $x("//*[@id='239']");
-    private ElementsCollection cupSize = $$x("//*[@id=\"content\"]/div[3]/div/div[1]/div[1]/form/fieldset/div");
-    private SelenideElement done = $x("");
-    //pop up Select store --- //*[@id="modal-target"]/div/div/div[2]/div/div/div/button[2]
 
-    public String chooseSize(SizeOption sizeOption) {
-        //??? як енам сюди прикрутити
-        return null;
+    public ProductPage chooseSizeOption(SizeOption size) {
+        $x("//input[@data-e2e='%s']".formatted(size.value())).click();
+        return this;
     }
 
-    public void chooseFilters() {
-        //???collection of elements cant find xpath
-
+    public void customization() {
+        //вибрати на мілк, дроп даунс,-обрали фільтр, клік дан
+        $("[data-e2e='option-Milk']").click();
+    $x("//*[@id=\"milk-options-customization-option\"]").selectOption("Nonfat Milk");
+   clickDone();
     }
 
-    public void clickDone() {
-
+    private void clickDone() {
+        //описати клік дан
+        $("[data-e2e='doneFrap']").click();
     }
 
     public void addToOrder() {
-
+$("[data-e2e='add-to-order-button']").click();
     }
 
     public void checkQuantity() {
-
+        String text = $("[data-e2e=\"cart-order-count\"]").getText();
+        assertThat(text).isEqualTo("1");
         //кількість в корзині, клік на іконку з кількістю напоїв
     }
 
-    public void selectStore() {
-     //see enum PopUp --- Please select a store before continuing to the cart. click on pop up
-
+    public StorePage selectStore() {
+        //see enum PopUp --- Please select a store before continuing to the cart. click on pop up
+$("[data-e2e='select-store-from-crust']").click();
+return new StorePage();
     }
+}
+
 }
